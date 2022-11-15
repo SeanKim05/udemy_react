@@ -1,6 +1,9 @@
-import ExpenseItem from "./components/ExpenseItem";
+import React from "react";
 
-function App() {
+import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
+
+const App = () => {
   const expenses = [
     {
       id: "e1",
@@ -21,19 +24,25 @@ function App() {
       amount: 450,
       date: new Date(2021, 5, 12),
     },
-    {
-      id: "e5",
-      title: "New Pen (Wooden)",
-      amount: 40,
-      date: new Date(2021, 5, 17),
-    },
   ];
+
+  const addExpenseHandler = (expenses) => {
+    console.log("sadas");
+    console.log(expenses);
+  };
+  // return React.createElement(
+  //   'div',
+  //   {},
+  //   React.createElement('h2', {}, "Let's get started!"),
+  //   React.createElement(Expenses, { items: expenses })
+  // );
 
   return (
     <div>
-      <ExpenseItem data={expenses} />
+      <NewExpense onAddExpense={addExpenseHandler} />
+      <Expenses items={expenses} />
     </div>
   );
-}
+};
 
 export default App;
